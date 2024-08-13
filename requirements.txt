@@ -1,6 +1,7 @@
 tensorflow
 pandas 
 dvc
+fsspec==2022.11.0  
 notebook
 numpy
 matplotlib
