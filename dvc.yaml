@@ -29,7 +29,7 @@ stages:
       - src/cnnRecognition/pipeline/stage_03_training.py
       - src/cnnRecognition/components/prepare_callbacks.py
       - config/config.yaml
-      - artifacts/data_ingestion/cell_images/cell_images
+      - artifacts/data_ingestion/unzipped_data/cell_images
       - artifacts/prepare_base_model
     params:
       - IMAGE_SIZE
@@ -37,7 +37,7 @@ stages:
       - BATCH_SIZE
       - AUGMENTATION
     outs:
-      - artifacts/training/model.h5
+      - artifacts/training/model.keras
 
 
   evaluation:
@@ -45,8 +45,8 @@ stages:
     deps:
       - src/cnnRecognition/pipeline/stage_04_evaluation.py
       - config/config.yaml
-      - artifacts/data_ingestion/unzipped_data/cell_images/cell_images
-      - artifacts/training/model.h5
+      - artifacts/data_ingestion/unzipped_data/cell_images
+      - artifacts/training/model.keras
     params:
       - IMAGE_SIZE
       - BATCH_SIZE
